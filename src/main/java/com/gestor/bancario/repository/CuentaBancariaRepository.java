@@ -4,4 +4,5 @@ import com.gestor.bancario.entity.CuentaBancaria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CuentaBancariaRepository extends JpaRepository<CuentaBancaria, Long> {
+	boolean existsByNumeroCuenta(String numeroCuenta);
 }

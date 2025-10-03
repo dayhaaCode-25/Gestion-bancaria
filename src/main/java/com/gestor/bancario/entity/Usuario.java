@@ -1,8 +1,13 @@
 package com.gestor.bancario.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 public class Usuario {
     @Id
@@ -10,6 +15,7 @@ public class Usuario {
     private Long id;
 
     private String nombre;
+    private String apellido;
     private String email;
     private String password;
 
@@ -30,6 +36,14 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getEmail() {

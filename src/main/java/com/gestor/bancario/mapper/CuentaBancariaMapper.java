@@ -9,6 +9,9 @@ public class CuentaBancariaMapper {
         dto.setId(cuenta.getId());
         dto.setNumeroCuenta(cuenta.getNumeroCuenta());
         dto.setSaldo(cuenta.getSaldo());
+        if (cuenta.getUsuario() != null) {
+            dto.setUsuarioId(cuenta.getUsuario().getId());
+        }
         return dto;
     }
 

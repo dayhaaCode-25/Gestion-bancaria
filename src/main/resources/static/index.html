@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor Bancario - Mockup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="display:flex; min-height:100vh;">
+    <nav id="menuLateral" style="width:220px; background:#003366; color:#fff; display:flex; flex-direction:column; align-items:center; padding:2rem 0; min-height:100vh;">
+    <button onclick="mostrarInicio()" style="width:80%; margin-bottom:1rem; background:#fff; color:#003366; border:none; border-radius:6px; padding:0.7rem; font-weight:bold; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;">
+        <span style="display:block; height:32px; width:32px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:100%; width:100%;"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
+        </span>
+        <span style="font-size:1rem; font-weight:500; color:#222;">Inicio</span>
+    </button>
+    <button onclick="mostrarTransaccionesMenu()" style="width:80%; margin-bottom:1rem; background:#fff; color:#003366; border:none; border-radius:6px; padding:0.7rem; font-weight:bold; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;">
+        <span style="display:block; height:32px; width:32px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:100%; width:100%;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </span>
+        <span style="font-size:1rem; font-weight:500; color:#222;">Transacciones</span>
+    </button>
+    <button onclick="configuracionUsuario()" style="width:80%; margin-bottom:1rem; background:#fff; color:#003366; border:none; border-radius:6px; padding:0.7rem; font-weight:bold; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;">
+        <span style="display:block; height:32px; width:32px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:100%; width:100%;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09A1.65 1.65 0 0 0 11 3.09V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </span>
+        <span style="font-size:1rem; font-weight:500; color:#222;">Configuración</span>
+    </button>
+    <button onclick="cerrarSesion()" style="width:80%; background:#ff4136; color:#fff; border:none; border-radius:6px; padding:0.7rem; font-weight:bold; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;">
+        <span style="display:block; height:32px; width:32px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:100%; width:100%;"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        </span>
+        <span style="font-size:1rem; font-weight:500; color:#fff;">Cerrar sesión</span>
+    </button>
+    </nav>
+    <div style="flex:1;">
+    <div class="main-flex">
+    <div style="max-width:600px; margin:2rem auto 2rem auto; background:#003366; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.12); padding:2rem 2.5rem; text-align:center;">
+        <h1 style="color:#fff; margin-bottom:0.5rem;">Bienvenido <span id="nombreUsuario"></span></h1>
+        <p style="font-size:0.95rem; color:#fff; margin-top:0.5rem; margin-bottom:1.5rem;">Hola! Bienvenido(a) a tu espacio bancario. Aquí puedes tener el control de tu dinero, todo en un solo lugar.<br>Estamos para acompañarte y ayudarte a manejar tus finanzas de forma simple y segura.</p>
+    </div>
+   
+
+    <section id="cuadroPrincipal" class="formulario" style="max-width:420px; margin:3rem auto 3rem auto;">
+        <div class="formulario-animado-content" style="text-align:center;">
+            <h2 style="color:#003366; margin-bottom:1.2rem;">Datos de la cuenta</h2>
+            <p style="font-size:1.15rem;"><strong>Número de cuenta:</strong> <span id="numeroCuenta"></span></p>
+            <p style="font-size:1.15rem;"><strong>Saldo:</strong> $<span id="saldoCuenta"></span></p>
+            <p style="font-size:1.15rem;"><strong>Nombre completo:</strong> <span id="nombreCompleto"></span></p>
+            <p style="font-size:1.15rem;"><strong>Estado de la cuenta:</strong> <span id="estadoCuenta">Activa</span></p>
+        </div>
+    </section>
+    <section id="configuracionMenu" style="display:none; max-width:500px; margin:2rem auto 2rem auto; background:transparent; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); padding:0;">
+        <div class="formulario-animado-content">
+            <h2 style="color:#003366; margin-bottom:1rem;">Configuración de usuario</h2>
+            <div style="margin-bottom:1.2rem;">
+                <p><strong>Número de cuenta:</strong> <span id="confNumeroCuenta"></span></p>
+                <p><strong>Tipo de cuenta:</strong> <span id="confTipoCuenta">Ahorros</span></p>
+                <p><strong>Saldo actual:</strong> $<span id="confSaldoCuenta"></span></p>
+            </div>
+            <div style="margin-bottom:1.2rem;">
+                <p><strong>Nombre completo:</strong> <span id="confNombreCompleto"></span></p>
+                <p><strong>Email:</strong> <span id="confEmailUsuario"></span></p>
+                <p><strong>Fecha de creación:</strong> <span id="confFechaCreacion"></span></p>
+                <p><strong>Estado de la cuenta:</strong> <span id="confEstadoCuenta"></span></p>
+            </div>
+            <div style="margin-bottom:1.2rem;">
+                <label for="nuevaContrasena"><strong>Cambiar contraseña:</strong></label><br>
+                <input type="password" id="nuevaContrasena" placeholder="Nueva contraseña" style="padding:0.5rem; border-radius:6px; width:70%; margin-top:0.5rem;">
+                <button id="btnCambiarContrasena" style="background:#003366; color:#fff; border:none; border-radius:6px; padding:0.5rem 1rem; font-weight:bold; cursor:pointer; margin-left:0.5rem;">Cambiar</button>
+            </div>
+            <div id="mensajeCambioContrasena" style="color:green; font-size:0.95rem; display:none;">Contraseña cambiada correctamente.</div>
+        </div>
+    </section>
+    <section id="transaccionesMenu" style="display:none;">
+        <div class="formulario-animado-content">
+            <h2>Transacciones</h2>
+            <form id="formTransaccion" style="margin-bottom:1rem;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:0.7rem;">
+                    <select id="tipoTransaccion" style="padding:0.5rem; border-radius:6px; width:160px;">
+                        <option value="deposito">Depósito</option>
+                        <option value="retiro">Retiro</option>
+                    </select>
+                    <input type="number" id="montoTransaccion" placeholder="Monto" min="1" style="padding:0.5rem; border-radius:6px; width:160px;">
+                    <button type="submit" style="background:#003366; color:#fff; border:none; border-radius:6px; padding:0.7rem 2rem; font-weight:bold; cursor:pointer; margin-top:1.2rem; align-self:center;">Ejecutar</button>
+                </div>
+            </form>
+            <ul id="lista-transacciones"></ul>
+        </div>
+    </section>
+    </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        if (usuario) {
+            document.getElementById('nombreUsuario').textContent = usuario.nombre;
+            document.getElementById('numeroCuenta').textContent = usuario.cuenta;
+            document.getElementById('saldoCuenta').textContent = usuario.saldo;
+          
+            document.getElementById('nombreCompleto').textContent = usuario.nombre + ' Gutierrez';
+            document.getElementById('emailUsuario').textContent = usuario.nombre.toLowerCase() + '@correo.com';
+            document.getElementById('fechaCreacion').textContent = '10/10/2025';
+            document.getElementById('estadoCuenta').textContent = 'Activa';
+        }
+        
+        function mostrarTransaccionesMenu() {
+            document.getElementById('transaccionesMenu').style.display = 'block';
+            mostrarTransacciones();
+        }
+        
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
